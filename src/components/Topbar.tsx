@@ -9,7 +9,7 @@ const Topbar = () => {
   return (
     <div
       className="flex items-center justify-between p-4 sticky top-0 bg-zinc-900/75 
-    backdrop-blur-md z-10 mx-2 rounded-lg"
+    backdrop-blur-md z-10 rounded-lg"
     >
       <div className="flex gap-2 items-center">Spotify</div>
 

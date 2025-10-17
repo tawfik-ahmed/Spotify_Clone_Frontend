@@ -7,7 +7,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const LoginPrompt = () => {
   return (
-    <div className="h-full flex flex-col items-center justify-between p-6 text-center y-4">
+    <div className="h-full flex flex-col items-center justify-between p-6 text-center my-4">
       <div className="relative">
         <div
           className="absolute -inset-1 bg-gradient-to-r from-emerald-500 to-sky-500 rounded-full blur-lg"

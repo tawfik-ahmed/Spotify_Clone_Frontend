@@ -1,6 +1,7 @@
 import SectionHeaderSkeleton from "@/components/skeletons/SectionHeaderSkeleton";
 import { Button } from "@/components/ui/button";
 import { Song } from "@/types";
+import PlayButton from "./PlayButton";
 
 type SectionHeaderProps = {
   title: string;
@@ -39,6 +40,7 @@ const SectionHeader = ({ title, songs, isLoading }: SectionHeaderProps) => {
                 />
               </div>
             </div>
+
             <h3 className="font-medium mb-2 truncate">{song.title}</h3>
             <p className="text-sm text-zinc-400 truncate">{song.artist}</p>
           </div>

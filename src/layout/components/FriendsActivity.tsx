@@ -1,6 +1,6 @@
 import { useChatStore } from "@/stores/useChatStore";
 import { useUser } from "@clerk/clerk-react";
-import { HeadphoneOffIcon, Users } from "lucide-react";
+import { HeadphoneOffIcon, Music, Users } from "lucide-react";
 import { useEffect } from "react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -35,14 +35,13 @@ const FriendsActivity = () => {
   const { users, isLoading, error, fetchUsers } = useChatStore();
   const { user } = useUser();
 
+  const isPlaying = true;
+
   useEffect(() => {
     if (user) {
       fetchUsers();
-      console.log("User: ", user);
     }
   }, [fetchUsers, user]);
-
-  console.log("Users: ", users);
 
   if (error) {
     console.log("Error: ", error);
@@ -70,7 +69,7 @@ const FriendsActivity = () => {
                 <div className="relative">
                   <Avatar className="size-10 border border-zinc-800">
                     <AvatarImage src={user.imageUrl} alt={user.fullName} />
-                    <AvatarFallback>{user.fullName[0]}</AvatarFallback>
+                    <AvatarFallback>{user.fullName}</AvatarFallback>
                   </Avatar>
                   <div
                     className={`absolute bottom-0 right-0 size-3 rounded-full border-2 border-zinc-900`}
@@ -83,7 +82,24 @@ const FriendsActivity = () => {
                     <span className="font-medium text-sm text-white">
                       {user.fullName}
                     </span>
+
+                    {isPlaying && (
+                      <Music className="size-3.5 text-emerald-400 shrink-0" />
+                    )}
                   </div>
+
+                  {isPlaying ? (
+                    <div className="mt-1">
+                      <div className="mt-1 text-sm text-white font-medium truncate">
+                        Cardiagn
+                      </div>
+                      <div className="text-xs text-zinc-400 truncate">
+                        by Taylor Swift
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="mt-1 text-xs text-zinc-400">Idle</div>
+                  )}
                 </div>
               </div>
             </div>

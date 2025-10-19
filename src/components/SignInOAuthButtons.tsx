@@ -25,7 +25,6 @@ const SignInOAuthButtons = () => {
       Continue with Google
     </Button>
   );
-  return <div></div>;
 };
 
 export default SignInOAuthButtons;

@@ -9,10 +9,10 @@ import FriendsActivity from "./components/FriendsActivity";
 const MainLayout = () => {
   const isMobile = false;
   return (
-    <div className="min-h-screen h-screen bg-black text-white flex flex-col ">
+    <div className="min-h-screen h-screen  bg-black text-white flex flex-col ">
       <ResizablePanelGroup
         direction="horizontal"
-        className="flex-1 flex h-screen overflow-hidden p-2"
+        className="flex-1 flex h-screen overflow-hidden p-2 gap-1"
       >
         <ResizablePanel
           defaultSize={20}
@@ -25,9 +25,7 @@ const MainLayout = () => {
         <ResizableHandle className="bg-transparent transition-colors" />
 
         <ResizablePanel defaultSize={isMobile ? 80 : 60}>
-          <div className="mx-2 rounded-md overflow-hidden h-full">
-            <Outlet />
-          </div>
+          <Outlet />
         </ResizablePanel>
 
         <ResizableHandle className="bg-transparent transition-colors" />

@@ -27,7 +27,9 @@ const AudioPlayer = () => {
   }, [playNext]);
 
   useEffect(() => {
-    if (!audioRef.current || !currentSong) return;
+    if (!audioRef.current || !currentSong) {
+      return;
+    }
     const audio = audioRef.current;
     const isSongChanged = prevSongRef.current !== currentSong?.audioUrl;
 

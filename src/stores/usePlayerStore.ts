@@ -69,7 +69,7 @@ export const usePlayerStore = create<PlayerStore>((set, get) => ({
       const nextSong = queue[nextIndex];
       set({ currentIndex: nextIndex, currentSong: nextSong, isPlaying: true });
     } else {
-      set({ isPlaying: false });
+      set({ currentIndex: -1, currentSong: null, isPlaying: false });
     }
   },
   playPrevious: () => {

@@ -16,7 +16,7 @@ const Topbar = () => {
     >
       <div className="flex gap-2 items-center">
         <img src="/spotify.png" alt="spotify logS" className="size-8" />
-        Spotify
+        <p className="hidden sm:block">Spotify</p>
       </div>
 
       <div className="flex items-center gap-4">
@@ -26,7 +26,7 @@ const Topbar = () => {
             className={cn(buttonVariants({ variant: "outline" }))}
           >
             <LayoutDashboardIcon className="size-4 mr-2" />
-            Admin Dashboard
+            <p className="hidden sm:block">Admin Dashboard</p>
           </Link>
         )}
 

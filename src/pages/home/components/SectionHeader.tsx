@@ -39,6 +39,7 @@ const SectionHeader = ({ title, songs, isLoading }: SectionHeaderProps) => {
                   className="w-full h-full object-center transition-transform duration-300 group-hover:scale-105"
                 />
               </div>
+              <PlayButton song={song} />
             </div>
 
             <h3 className="font-medium mb-2 truncate">{song.title}</h3>

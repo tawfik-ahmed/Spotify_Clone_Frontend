@@ -20,10 +20,25 @@ const HomePage = () => {
   const { initializeQueue } = usePlayerStore();
 
   useEffect(() => {
-    fetchFeaturedSongs();
-    fetchMadeForYouSongs();
-    fetchTrendingSongs();
-  }, [fetchFeaturedSongs, fetchMadeForYouSongs, fetchTrendingSongs]);
+    if (featuredSongs.length === 0) {
+      fetchFeaturedSongs();
+    }
+
+    if (madeForYouSongs.length === 0) {
+      fetchMadeForYouSongs();
+    }
+
+    if (trendingSongs.length === 0) {
+      fetchTrendingSongs();
+    }
+  }, [
+    fetchFeaturedSongs,
+    fetchMadeForYouSongs,
+    fetchTrendingSongs,
+    featuredSongs,
+    madeForYouSongs,
+    trendingSongs,
+  ]);
 
   useEffect(() => {
     if (
@@ -31,7 +46,7 @@ const HomePage = () => {
       trendingSongs.length > 0 &&
       featuredSongs.length > 0
     ) {
-      const allSongs = [...featuredSongs, ...trendingSongs, ...madeForYouSongs];
+      const allSongs = [...featuredSongs, ...madeForYouSongs, ...trendingSongs];
       initializeQueue(allSongs);
     }
   }, [initializeQueue, madeForYouSongs, trendingSongs, featuredSongs]);

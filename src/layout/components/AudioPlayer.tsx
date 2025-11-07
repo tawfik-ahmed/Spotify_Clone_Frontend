@@ -18,6 +18,7 @@ const AudioPlayer = () => {
     const audio = audioRef.current;
 
     const handleEnded = () => {
+      console.log("song ended");
       playNext();
     };
 

@@ -12,7 +12,7 @@ import { Song } from "@/types";
 import { Calendar, Trash2 } from "lucide-react";
 
 const SongsTable = () => {
-  const { songs, isLoading, error, deleteSong } = useMusicStore();
+  const { songs, isLoading, error, deleteSong, fetchSongs } = useMusicStore();
 
   if (isLoading) {
     return (
@@ -68,7 +68,9 @@ const SongsTable = () => {
                   variant={"ghost"}
                   size={"sm"}
                   className="text-red-400 hover:text-red-300 hover:bg-red-400/10 cursor-pointer"
-                  onClick={() => deleteSong(song._id)}
+                  onClick={() => {
+                    deleteSong(song._id);
+                  }}
                 >
                   <Trash2 className="size-4" />
                 </Button>

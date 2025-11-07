@@ -55,7 +55,7 @@ const AddSongDialog = () => {
 
   const handleSubmit = async () => {
     setIsLoading(true);
-    const loadingToast = toast.loading("⚠️ This may take 10 – 20 seconds...");
+    const loadingToast = toast.loading("⚠️ This may take 5 – 10 seconds...");
 
     try {
       if (!files.audio || !files.image) {
@@ -114,7 +114,7 @@ const AddSongDialog = () => {
     <Dialog open={songDialogOpen} onOpenChange={setSongDialogOpen}>
       <DialogTrigger asChild>
         <Button className="bg-emerald-500 hover:bg-emerald-600 !text-black cursor-pointer">
-          <Plus className="mr-2 h-4 w-4" />
+          <Plus className="mr-2 size-4" />
           Add Song
         </Button>
       </DialogTrigger>

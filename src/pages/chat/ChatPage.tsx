@@ -13,7 +13,8 @@ const ChatPage = () => {
   const scrollAreaRef = useRef<any>(null);
 
   const { user } = useUser();
-  const { messages, selectedUser, fetchUsers, fetchMessages } = useChatStore();
+  const { messages, selectedUser, fetchUsers, fetchMessages, isTyping } =
+    useChatStore();
 
   const scrollToBottom = () => {
     if (!scrollAreaRef.current) {
@@ -45,7 +46,7 @@ const ChatPage = () => {
     <main className="h-full rounded-lg bg-gradient-to-b from-zinc-800 to-zinc-900 overflow-hidden">
       <Topbar />
 
-      <div className="grid grid-cols-[80px_1fr] lg:grid-cols-[300px_1fr] h-[calc(100vh-180px)]">
+      <div className="grid grid-cols-[80px_1fr] lg:grid-cols-[300px_1fr] h-[calc(100vh-180px)] relative">
         <UsersList />
 
         <div className="flex flex-col h-full">
@@ -87,6 +88,22 @@ const ChatPage = () => {
                   ))}
                 </div>
               </ScrollArea>
+              {isTyping && selectedUser && (
+                <div className="absolute bottom-18 left-18 flex items-center justify-start gap-2 px-4 py-2 mt-2">
+                  <Avatar className="size-4">
+                    <AvatarImage
+                      src={selectedUser.imageUrl}
+                      alt={selectedUser.fullName[0]}
+                    />
+                  </Avatar>
+
+                  <div className="flex items-center justify-center gap-1 bg-zinc-800 rounded-lg px-2 py-1">
+                    <span className="size-1.5 bg-zinc-400 rounded-full animate-bounce [animation-delay:0ms]" />
+                    <span className="size-1.5 bg-zinc-400 rounded-full animate-bounce [animation-delay:150ms]" />
+                    <span className="size-1.5 bg-zinc-400 rounded-full animate-bounce [animation-delay:300ms]" />
+                  </div>
+                </div>
+              )}
               <MessageInput />
             </>
           ) : (

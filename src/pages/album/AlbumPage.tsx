@@ -87,7 +87,7 @@ const AlbumPage = () => {
             className="h-14 w-14 !rounded-full !bg-green-500 hover:!bg-green-400 hover:scale-105 transition-all"
             onClick={handlePlayAlbum}
           >
-            {isPlaying ? (
+            {isPlaying && albumId === currentSong?.albumId ? (
               <Pause className="size-4 text-black" />
             ) : (
               <Play className="size-4 text-black" />

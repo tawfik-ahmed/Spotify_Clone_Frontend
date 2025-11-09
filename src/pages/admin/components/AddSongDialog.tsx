@@ -31,7 +31,7 @@ interface NewSong {
 }
 
 const AddSongDialog = () => {
-  const { albums, fetchSongs } = useMusicStore();
+  const { albums, fetchSongs, fetchStats } = useMusicStore();
   const [songDialogOpen, setSongDialogOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -101,7 +101,7 @@ const AddSongDialog = () => {
 
       toast.success("Song added successfully");
 
-      await fetchSongs();
+      Promise.all([fetchSongs(), fetchStats()]);
     } catch (error: any) {
       toast.error("Failed to add song");
     } finally {

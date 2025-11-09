@@ -22,7 +22,7 @@ interface NewAlbum {
 }
 
 const AddAlbumDialog = () => {
-  const { fetchAlbums } = useMusicStore();
+  const { fetchAlbums, fetchStats } = useMusicStore();
   const [albumDialogOpen, setAlbumDialogOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -76,7 +76,7 @@ const AddAlbumDialog = () => {
 
       setImageFile(null);
       setAlbumDialogOpen(false);
-      await fetchAlbums();
+      Promise.all([fetchAlbums(), fetchStats()]);
       toast.success("Album created successfully");
     } catch (error: any) {
       toast.error("Failed to create album");

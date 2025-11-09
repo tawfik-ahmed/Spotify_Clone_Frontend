@@ -10,9 +10,14 @@ import {
 import { useMusicStore } from "@/stores/useMusicStore";
 import { Song } from "@/types";
 import { Calendar, Trash2 } from "lucide-react";
+import { useEffect } from "react";
 
 const SongsTable = () => {
   const { songs, isLoading, error, deleteSong, fetchSongs } = useMusicStore();
+
+  useEffect(() => {
+    fetchSongs();
+  }, [fetchSongs]);
 
   if (isLoading) {
     return (

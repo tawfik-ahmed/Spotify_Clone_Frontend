@@ -5,6 +5,10 @@ import { Library, ListMusic, PlayCircle, Users2 } from "lucide-react";
 const DashboardStats = () => {
   const { stats } = useMusicStore();
 
+  if (!stats) {
+    return null;
+  }
+
   const statsData = [
     {
       icon: ListMusic,

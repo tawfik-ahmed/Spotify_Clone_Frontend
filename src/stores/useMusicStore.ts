@@ -26,7 +26,7 @@ interface MusicStore {
   deleteAlbum: (id: string) => Promise<void>;
 }
 
-export const useMusicStore = create<MusicStore>((set) => ({
+export const useMusicStore = create<MusicStore>((set, get) => ({
   albums: [],
   songs: [],
   isLoading: false,
@@ -124,7 +124,11 @@ export const useMusicStore = create<MusicStore>((set) => ({
 
     try {
       const response = await axiosInstance.get("/songs");
-      set({ songs: response.data, isLoading: false });
+      set({
+        songs: response.data,
+        isLoading: false,
+        stats: response.data.stats,
+      });
     } catch (error: any) {
       set({ error: error.response.data.message });
     } finally {
@@ -143,6 +147,7 @@ export const useMusicStore = create<MusicStore>((set) => ({
       }));
 
       toast.success("Song deleted successfully");
+      await get().fetchStats();
     } catch (error: any) {
       set({ error: error.response.data.message });
     } finally {
@@ -161,6 +166,7 @@ export const useMusicStore = create<MusicStore>((set) => ({
       }));
 
       toast.success("Album deleted successfully");
+      await get().fetchStats();
     } catch (error: any) {
       set({ error: error.response.data.message });
     } finally {

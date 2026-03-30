@@ -1,12 +1,13 @@
-# Spotify Clone (Front-End)
+# Spotify Clone (Front-End) 🎵 
 
 <p align="center">
-  <img src="image1.png" width="80%" />
+    <img src="image1.png" width="100%" />
 </p>
-
 <p align="center">
-  <img src="image2.png" width="45%" />
-  <img src="image3.png" width="45%" />
+    <img src="image2.png" width="100%" />
+</p>
+<p align="center">
+    <img src="image3.png" width="100%" />
 </p>
   
 Back-End Repo: [https://github.com/tawfik-ahmed/Spotify_Clone_Backend]

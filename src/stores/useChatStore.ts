@@ -25,7 +25,7 @@ interface ChatStore {
   stopTyping: (senderId: string, receiverId: string) => void;
 }
 
-const baseUrl = "http://localhost:5000";
+const baseUrl = "https://spotify-clone-backend-n60u.onrender.com";
 const socket = io(baseUrl, { autoConnect: false, withCredentials: true });
 
 export const useChatStore = create<ChatStore>((set, get) => ({
@@ -127,7 +127,7 @@ export const useChatStore = create<ChatStore>((set, get) => ({
   sendMessage: async (
     senderId: string,
     receiverId: string,
-    content: string
+    content: string,
   ) => {
     const socket = get().socket;
 

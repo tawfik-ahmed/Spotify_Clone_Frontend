@@ -1,6 +1,6 @@
 import axios from "axios";
 
 export const axiosInstance = axios.create({
-  baseURL: "http://localhost:5000/api",
+  baseURL: "https://spotify-clone-backend-n60u.onrender.com/api/",
   withCredentials: true,
 });

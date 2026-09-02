@@ -24,10 +24,9 @@ const AuthCallbackPage = () => {
         });
 
         syncAttempted.current = true;
+        navigate("/");
       } catch (error: any) {
         console.log("Error in auth callback: ", error);
-      } finally {
-        navigate("/");
       }
     };
 
